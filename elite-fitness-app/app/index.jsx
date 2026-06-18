@@ -7,6 +7,8 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
+import Animated, { FadeInDown } from "react-native-reanimated";
+
 cssInterop(LinearGradient, {
   className: {
     target: "style",
@@ -28,7 +30,10 @@ export default function Index() {
         end={{ x: 0.5, y: 0.8 }}
         className="flex justify-end pb-12 space-y-8"
       >
-        <View className="flex items-center">
+        <Animated.View
+          entering={FadeInDown.delay(100).springify()}
+          className="flex items-center"
+        >
           <Text
             style={{ fontSize: hp(5) }}
             className="text-white font-bold tracking-wide"
@@ -44,8 +49,8 @@ export default function Index() {
           >
             For You
           </Text>
-        </View>
-        <View>
+        </Animated.View>
+        <Animated.View entering={FadeInDown.delay(200).springify()}>
           <TouchableOpacity
             style={{ height: hp(7), width: wp(80) }}
             className="bg-rose-500 flex items-center justify-center mx-auto rounded-full border-[2px] border-neutral-200"
@@ -57,7 +62,7 @@ export default function Index() {
               Get Started
             </Text>
           </TouchableOpacity>
-        </View>
+        </Animated.View>
       </LinearGradient>
     </View>
   );
