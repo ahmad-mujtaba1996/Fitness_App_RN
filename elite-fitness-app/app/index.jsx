@@ -7,6 +7,7 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
+import { useRouter } from "expo-router";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
 cssInterop(LinearGradient, {
@@ -16,6 +17,7 @@ cssInterop(LinearGradient, {
 });
 
 export default function Index() {
+  const router = useRouter();
   return (
     <View className="flex-1 flex justify-end">
       <StatusBar style="light" />
@@ -52,6 +54,7 @@ export default function Index() {
         </Animated.View>
         <Animated.View entering={FadeInDown.delay(200).springify()}>
           <TouchableOpacity
+            onPress={() => router.push("home")}
             style={{ height: hp(7), width: wp(80) }}
             className="bg-rose-500 flex items-center justify-center mx-auto rounded-full border-[2px] border-neutral-200"
           >

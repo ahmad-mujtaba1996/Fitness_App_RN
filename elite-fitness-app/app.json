@@ -1,5 +1,6 @@
 {
   "expo": {
+    "newArchEnabled": true,
     "name": "elite-fitness-app",
     "slug": "elite-fitness-app",
     "version": "1.0.0",
