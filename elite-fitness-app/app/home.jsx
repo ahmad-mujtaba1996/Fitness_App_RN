@@ -3,6 +3,7 @@ import { Image, Text, View } from "react-native";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ImageSlider from "../components/image_slider";
+import BodyParts from "../components/body_parts";
 
 export default function Home() {
   return (
@@ -40,6 +41,10 @@ export default function Home() {
       {/* Image Slider */}
       <View>
         <ImageSlider />
+      </View>
+     {/* Body Parts List */}
+      <View className="flex-1">
+        <BodyParts />
       </View>
     </SafeAreaView>
   );
