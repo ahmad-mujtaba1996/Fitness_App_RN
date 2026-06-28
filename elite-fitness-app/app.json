@@ -37,7 +37,8 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "@react-native-vector-icons/ionicons"
+      "@react-native-vector-icons/ionicons",
+      "expo-image"
     ],
     "experiments": {
       "typedRoutes": true
