@@ -1,7 +1,7 @@
 import axios from "axios";
 import { rapidApiKey } from "../constants";
 
-const baseUrl = "https://exercisedb.p.rapidapi.com";
+export const baseUrl = "https://exercisedb.p.rapidapi.com";
 
 const apiCall = async (url, params) => {
   try {
