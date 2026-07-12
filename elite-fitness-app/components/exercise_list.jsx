@@ -1,7 +1,10 @@
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
-import { FlatList, TouchableOpacity, View } from "react-native";
-import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 import { baseUrl } from "../api/exerciseDB";
 import { rapidApiKey } from "../constants";
 
@@ -29,7 +32,15 @@ export const ExerciseList = ({ data }) => {
 const ExerciseCard = ({ item, router, index }) => {
   return (
     <View>
-      <TouchableOpacity className="flex py-3 gap-y-2">
+      <TouchableOpacity
+        onPress={() =>
+          router.push({
+            pathname: "/exerciseDetails",
+            params: item,
+          })
+        }
+        className="flex py-3 gap-y-2"
+      >
         <View className="bg-neutral-200 shadow rounded-[25px]">
           <Image
             source={{
@@ -47,6 +58,14 @@ const ExerciseCard = ({ item, router, index }) => {
             className="rounded-[25px]"
           />
         </View>
+        <Text
+          style={{ fontSize: hp(1.7) }}
+          className="text-neutral-700 font-semibold ml-1"
+        >
+          {item?.name?.length > 20
+            ? item?.name.slice(0, 20) + "..."
+            : item?.name}
+        </Text>
       </TouchableOpacity>
     </View>
   );
