@@ -10,16 +10,15 @@ import {
 import { ScrollView } from "react-native-virtualized-view";
 import { fetchExerciseByBodyPart } from "../api/exerciseDB";
 import { ExerciseList } from "../components/exercise_list";
-import { bodyPartResp } from "../constants";
 
 export default function ExeciseDetails() {
   const router = useRouter();
   const item = useLocalSearchParams();
-  const [getBodyPartList, setBodyPartList] = useState(bodyPartResp);
+  const [getBodyPartList, setBodyPartList] = useState([]);
 
   useEffect(() => {
-    // if (item) getExerciseData(item.name);
-  }, [item]);
+    if (item?.name) getExerciseData(item.name);
+  }, [item.name]);
 
   const getExerciseData = async (bodyPartName) => {
     let fetchedResponse = await fetchExerciseByBodyPart(bodyPartName);
