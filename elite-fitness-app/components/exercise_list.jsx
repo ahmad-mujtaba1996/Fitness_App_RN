@@ -1,6 +1,7 @@
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -31,7 +32,14 @@ export const ExerciseList = ({ data }) => {
 
 const ExerciseCard = ({ item, router, index }) => {
   return (
-    <View>
+    <Animated.View
+      entering={FadeInDown.duration(400)
+        .delay(index * 200)
+        .springify()
+        .damping(10)
+        .stiffness(100)
+        .mass(3)}
+    >
       <TouchableOpacity
         onPress={() =>
           router.push({
@@ -67,6 +75,6 @@ const ExerciseCard = ({ item, router, index }) => {
             : item?.name}
         </Text>
       </TouchableOpacity>
-    </View>
+    </Animated.View>
   );
 };
