@@ -38,6 +38,7 @@
         }
       ],
       "@react-native-vector-icons/ionicons",
+      "@react-native-vector-icons/ant-design",
       "expo-image"
     ],
     "experiments": {
